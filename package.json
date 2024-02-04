@@ -1,0 +1,33 @@
+{
+  "name": "babel-plugin-customize-imports",
+  "version": "0.1.0",
+  "description": "Transforms member style imports (import {x} from 'y') into default style imports (import x from 'y/lib/x')",
+  "keywords": [
+    "babel",
+    "transform",
+    "import",
+    "react-bootstrap",
+    "lodash"
+  ],
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SoldierAb/babel-plugin-customize-imports.git"
+  },
+  "homepage": "https://github.com/SoldierAb/babel-plugin-customize-imports",
+  "scripts": {
+    "test": "mocha --require @babel/register"
+  },
+  "author": "SoldierAb",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/types": "^7.4",
+    "is-valid-path": "^0.1.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4",
+    "@babel/preset-env": "^7.4",
+    "@babel/register": "^7.4.4",
+    "mocha": "^6.1"
+  }
+}
