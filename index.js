@@ -115,7 +115,7 @@ module.exports = function () {
 
             var replace = transform(opts.transform, importName, matches);
 
-            var shouldSkip = typeof opts.skipDefaultConversion === 'function' ? opts.skipDefaultConversion(opts.transform, importName, matches) : opts.skipDefaultConversion
+            var shouldSkip = typeof opts.skipDefaultConversion === 'function' ? opts.skipDefaultConversion(importName, matches) : opts.skipDefaultConversion
 
             var newImportSpecifier = shouldSkip
               ? memberImport
