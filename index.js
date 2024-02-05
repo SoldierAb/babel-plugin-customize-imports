@@ -58,7 +58,7 @@ module.exports = function () {
         // https://github.com/babel/babel/tree/master/packages/babel-types#timportdeclarationspecifiers-source
 
         // path.node has properties 'source' and 'specifiers' attached.
-        // path.node.source is the library/module name, aka 'react-bootstrap'.
+        // path.node.source is the library/module name, aka 'your-utils'.
         // path.node.specifiers is an array of ImportSpecifier | ImportDefaultSpecifier | ImportNamespaceSpecifier
 
         var source = path.node.source.value;
@@ -90,9 +90,9 @@ module.exports = function () {
             if (memberImports.length > 0) {
               // Swap out the import with one that doesn't include member imports.  Member imports should each get their own import line
               // transform this:
-              //      import Bootstrap, { Grid } from 'react-bootstrap';
+              //      import Bootstrap, { Fun1 } from 'your-utils';
               // into this:
-              //      import Bootstrap from 'react-bootstrap';
+              //      import Bootstrap from 'your-utils';
               transforms.push(types.importDeclaration(fullImports, types.stringLiteral(source)));
             }
           }
@@ -105,11 +105,11 @@ module.exports = function () {
             //      import { member as alias } from 'module' (ImportSpecifier)
 
             // transform this:
-            //      import { Grid as gird } from 'react-bootstrap';
+            //      import { Fun1 as fun1 } from 'your-utils';
             // into this:
-            //      import gird from 'react-bootstrap/lib/Grid';
+            //      import fun1 from 'your-utils/lib/Fun1';
             // or this, if skipDefaultConversion = true:
-            //      import { Grid as gird } from 'react-bootstrap/lib/Grid';
+            //      import { Fun1 as fun1 } from 'your-utils/lib/Fun1';
 
             var importName = memberImport.imported.name;
 
